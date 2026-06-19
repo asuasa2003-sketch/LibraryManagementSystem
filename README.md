@@ -29,3 +29,9 @@ The system allows users to:
 
 ```bash
 python3 main.py
+
+## Author
+
+Asa Omidvar
+Computer Engineering Student
+OSTIM Technical University
