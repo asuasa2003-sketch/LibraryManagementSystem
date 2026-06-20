@@ -95,9 +95,64 @@ def delete_book():
     conn.commit()
     conn.close()
 
-    print("Book deleted successfully!")
+    print("Book deleted successfully!") 
 
 
+def add_member():
+    name = input("Member Name: ")
+    email = input("Member Email: ")
+
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "INSERT INTO members (name, email) VALUES (?, ?)",
+        (name, email)
+    )
+
+    conn.commit()
+    conn.close()
+
+    print("Member added successfully!")
+
+def show_members():
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM members")
+    members = cursor.fetchall()
+
+    if not members:
+        print("No members found.")
+    else:
+        for member in members:
+            print(member)
+
+    conn.close()
+
+def loan_book():
+    book_id = int(input("Book ID: "))
+    member_id = int(input("Member ID: "))
+    loan_date = input("Loan Date (YYYY-MM-DD): ")
+
+    conn = connect()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """
+        INSERT INTO loans (book_id, member_id, loan_date)
+        VALUES (?, ?, ?)
+        """,
+        (book_id, member_id, loan_date)
+    )
+
+    conn.commit()
+    conn.close()
+
+    print("Loan recorded successfully!")
+  
+
+   
 while True:
     print("\n===== Library Management System =====")
     print("1. Add Book")
@@ -105,7 +160,10 @@ while True:
     print("3. Search Book")
     print("4. Update Book")
     print("5. Delete Book")
-    print("6. Exit")
+    print("6. Add Member")
+    print("7. Show Members")
+    print("8. Loan Book")
+    print("9. Exit")
 
     choice = input("Choose an option: ")
 
@@ -125,7 +183,20 @@ while True:
         delete_book()
 
     elif choice == "6":
+         add_member()
+
+    elif choice == "7":
+
+        show_members()
+
+    elif choice == "8":
+
+        loan_book()
+
+    elif choice == "9":
+
         print("Goodbye!")
+
         break
 
     else:
