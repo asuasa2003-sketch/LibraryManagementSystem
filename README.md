@@ -1,36 +1,41 @@
-# Library Management System
+Library Management System
 
-## Project Description
+Project Description
+
 This project is a Library Management System developed using Python, SQLite, SQL, and GitHub.
 
-The system allows users to:
+The system allows users to manage books and library members through a command-line interface.
 
-- Add books
-- View books
-- Search books
-- Update books
-- Delete books
+Features
 
-## Technologies Used
+* Add books
+* View books
+* Search books
+* Update books
+* Delete books
+* Add members
+* View members
+* Record book loans
 
-- Python
-- SQLite
-- SQL
-- GitHub
+Technologies Used
 
-## Files
+* Python
+* SQLite
+* SQL
+* GitHub
 
-- main.py
-- database.py
-- schema.sql
-- library.db
+Project Files
 
-## How to Run
+* main.py – Main application logic
+* database.py – Database connection and setup
+* schema.sql – Database schema
+* library.db – SQLite database file
 
-```bash
+How to Run
+
 python3 main.py
 
-## Author
+Author
 
 Asa Omidvar
 Computer Engineering Student
